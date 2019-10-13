@@ -9,7 +9,8 @@ import java.lang.reflect.Method;
 
 /**
  * Created by Alie on 2019/10/6.
- * 类描述
+ * 运行本app的说明：
+ * 本demo是按照6.0源码进行的hook
  * 版本
  */
 public class App extends Application {
@@ -21,6 +22,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         hookUtil = new HookUtil();
+        hookUtil.hookStartActivity(this);
+        hookUtil.hookActivtyMh();
         hookUtil.injectPluginDex(this);
 
 

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LogoActivity">
     <ImageView
+        android:id="@+id/iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/chess_name_logo"
