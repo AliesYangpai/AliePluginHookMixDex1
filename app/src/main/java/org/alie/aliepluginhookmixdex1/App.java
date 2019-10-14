@@ -25,8 +25,6 @@ public class App extends Application {
         hookUtil.hookStartActivity(this);
         hookUtil.hookActivtyMh();
         hookUtil.injectPluginDex(this);
-
-
         String apkPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/playchess-debug.apk";
         try {
             assetManager = AssetManager.class.newInstance();
@@ -36,7 +34,7 @@ public class App extends Application {
 //        手动实例化
             Method ensureStringBlocks = AssetManager.class.getDeclaredMethod("ensureStringBlocks");
             ensureStringBlocks.setAccessible(true);
-            ensureStringBlocks.invoke(assetManager);
+            ensureStringBlocks.invoke(assetManager); // 这里调用下，那么StringBlocks数组就被初始化了，也就是说资源文件已经被转化到内存StringBlock数组中了
 //            插件的StringBloac被实例化了
             Resources supResource = getResources();
             newResource = new Resources(assetManager, supResource.getDisplayMetrics(), supResource.getConfiguration());
